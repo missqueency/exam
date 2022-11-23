@@ -1,0 +1,54 @@
+#navbar{
+	
+}
+.bg-image{
+	min-height: 10vh;
+	background-color:  #D4A373;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 75% 50%!important;
+	background-attachment: scroll;
+
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+body {
+font-family: 'Caveat', cursive;
+font-size: 1.8rem;
+background-color: #FEFAE0	;
+}
+
+.bg-project{
+	background-color: #D4A373;
+}
+.card-subtitle{
+	font-size: 90%;
+	color: black	;
+
+}
+
+.card-title {
+	font-size: 110%;
+
+}
+
+.btn{
+	padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 30px;
+
+}
+
+#input
+{
+	font-size: 30px;
+}

@@ -1,3 +1,7 @@
+html	{
+	 scroll-behavior: smooth;
+}
+
 #navbar{
 	color: black;
 }
@@ -23,6 +27,7 @@ body {
 font-family: 'Caveat', cursive;
 font-size: 1.8rem;
 background-color: #FEFAE0	;
+
 }
 
 .bg-project{
@@ -53,3 +58,9 @@ background-color: #FEFAE0	;
 	font-size: 30px;
 }
 
+.ani {
+	behavior: scroll;
+	animation-direction: alternate;
+	animation-duration: 1s;
+	height: 60vh;
+}

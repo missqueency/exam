@@ -41,7 +41,6 @@ function startQuiz() {
 
     shuffledQuestions = [...questions];
     shuffle(shuffledQuestions);
-
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+   
+    <title>ADMINISTRATIVE OFFICER II EXAM</title>
+
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>PART II. TRUE OR FALSE. </h1>
+        <p>Indicate T if True then F if False. If the statement is false, underline the part of the statement which makes it false. (2 points each)</p>
+        <div id="examiner-info">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <label for="contact">Contact Details:</label>
+            <input type="text" id="contact" placeholder="Enter your contact details">
+            <button id="start-button" class="btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+        <div id="question-container" class="hide">
+            <p>Time Remaining: <span id="timer">60</span> seconds</p>
+            <p id="question"></p>
+            <div id="answer-buttons" class="btn-container"></div>
+        </div>
+        <button id="next-button" class="btn1 hide" onclick="nextQuestion()">Next</button>
+        <div id="score-container" class="hide">
+            <p id="score-text">Score: <span id="score">0</span></p>
+        </div>
+        <div id="summary" class="hide"></div>
+    </div>
+
+  
+    <script src="script.js">
+
+    </script>
+</body>
+</html>

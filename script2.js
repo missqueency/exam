@@ -151,7 +151,7 @@ function showNotification(message) {
 function beginTimer() {
     showNotification("Redirecting to another tab. Please don't close this tab.");
     timer2 = setTimeout(() => {
-        const newTab = window.open("file:///D:/deped/index.html", "_blank");
+        const newTab = window.open("part2.html", "_blank");
         newTab.focus();
         hideNotification();
     }, 3000);

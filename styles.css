@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.quiz-container {
+    background-color: #fff;
+    padding: 200px;
+
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 16px;
+
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 24px;
+}
+#examiner-info input[type="text"] {
+    width: 100%; /* Make the input boxes span the full width of their container */
+    padding: 10px; /* Adjust padding to increase input box size */
+    font-size: 16px; /* Adjust font size as needed */
+    margin-bottom: 10px;
+}
+#score-container {
+    font-size: 18px;
+    margin-top: 20px;
+    display: none;
+}

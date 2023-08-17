@@ -19,6 +19,15 @@ body {
     text-align: center;
 }
 
+.question-container {
+    background-color: #fff;
+    padding: 200px;
+
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
 .btn-container {
     display: flex;
     flex-direction: column;
@@ -38,6 +47,18 @@ body {
     border-radius: 5px;
     font-size: 24px;
 }
+
+#incorrect-word{
+    width: 35%; /* Make the input boxes span the full width of their container */
+    padding: 5px; /* Adjust padding to increase input box size */
+    font-size: 16px; /* Adjust font size as needed */
+    margin-bottom: 10px;
+}
+
+.btn1{
+    display: none;
+}
+
 #examiner-info input[type="text"] {
     width: 100%; /* Make the input boxes span the full width of their container */
     padding: 10px; /* Adjust padding to increase input box size */
@@ -48,4 +69,82 @@ body {
     font-size: 18px;
     margin-top: 20px;
     display: none;
+}
+#buttons input[type="text"]{
+    width: 100%; /* Make the input boxes span the full width of their container */
+    padding: 10px; /* Adjust padding to increase input box size */
+    font-size: 16px; /* Adjust font size as needed */
+    margin-bottom: 10px;
+}
+
+.notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffcc00;
+  color: #333;
+  text-align: center;
+  padding: 10px;
+  z-index: 9999;
+}
+
+ 
+#summary {
+    margin: 20px auto; /* Center the summary on the page */
+    background-color: #f4f4f4;
+    text-align: center;
+    max-width: 100%; /* Ensure the summary doesn't exceed the page width */
+    box-sizing: border-box; /* Include padding and border in the total width */
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 2E;
+}
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        font-size: 12px; /* Adjust font size for printing */
+    }
+
+    .quiz-container {
+        max-width: 50%;
+        max-height: 100%;
+        margin: 0;
+        padding: 20px;
+        border: none; /* Remove border for printing */
+        background-color: transparent; /* Remove background color for printing */
+    }
+
+    h1 {
+        font-size: 20px; /* Adjust font size for printing */
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        display: none; /* Hide input fields for printing */
+    }
+
+    .btn {
+        display: none; /* Hide buttons for printing */
+    }
+
+    #next-button {
+        display: none !important; /* Ensure next button is hidden for printing */
+    }
+
+    #summary {
+        display: block; /* Show summary for printing */
+    }
+
+    .summary-item {
+        margin-bottom: 10px;
+        font-size: 12px; /* Adjust font size for printing */
+    }
+
 }

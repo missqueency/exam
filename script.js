@@ -151,7 +151,7 @@ function showNotification(message) {
 function beginTimer() {
     showNotification("Redirecting to another tab. Please don't close this tab.");
     timer2 = setTimeout(() => {
-        const newTab = window.open("https://gitlab.com/", "_blank");
+        const newTab = window.open("", "_blank");
         newTab.focus();
         hideNotification();
     }, 3000);

@@ -39,10 +39,8 @@ function startQuiz() {
 
     nextButton.style.display = "none";
     scoreElement.textContent = score;
-
-    const instructionElement = document.getElementById("instruction");
+     const instructionElement = document.getElementById("instruction");
     instructionElement.style.display = "none";
-
 
     shuffledQuestions = [...questions];
     shuffle(shuffledQuestions);
@@ -51,7 +49,7 @@ function startQuiz() {
 }
 
 let timer;
-let timeLimit = 30;
+let timeLimit = 3;
 
 function startTimer() {
     let remainingTime = timeLimit;
@@ -114,7 +112,7 @@ function selectAnswer(selectedIndex, incorrectWord = "") {
     const selectedQuestion = shuffledQuestions[currentQuestionIndex];
     const selectedAnswer = selectedQuestion.answers[selectedIndex];
 
-    if ((selectedIndex === 1 && incorrectWord !== "") || selectedAnswer.correct) {
+    if (selectedAnswer.correct && (selectedIndex !== 1 || incorrectWord === "")) {
         if (selectedQuestion.answers.length === 2) {
             score += 2; // Questions with 2 choices are worth 2 points
         } else {
@@ -132,7 +130,6 @@ function selectAnswer(selectedIndex, incorrectWord = "") {
         beginTimer();
     }
 }
-
 
 function nextQuestion() {
     if (currentQuestionIndex < shuffledQuestions.length - 1) {
@@ -156,7 +153,7 @@ function showNotification(message) {
 function beginTimer() {
     showNotification("Redirecting to another tab. Please don't close this tab.");
     timer2 = setTimeout(() => {
-        const newTab = window.open("https://bit.ly/DepEdROX_AO2Exam", "_blank");
+        const newTab = window.open("", "_blank");
         newTab.focus();
         hideNotification();
     }, 3000);
@@ -169,47 +166,51 @@ function hideNotification() {
     }
 }
 
-    function finishQuiz() {
-        clearInterval(timer);
-        questionContainer.style.display = "none";
+ 
+function finishQuiz() {
+    clearInterval(timer);
+    questionContainer.style.display = "none";
 
-        let summaryHTML = `<h2>Exam Results</h2>`;
-        summaryHTML += `<div class="summary-item" style="font-size: 20px">
-                            <p><strong style="font-size: 20px;">Examiner Name:</strong> ${examinerName}</p>
-                            <p><strong style="font-size: 20px;">Contact Details:</strong> ${examinerContact}</p>
-                            <p><strong style="font-size: 20px;">Final Score:</strong> ${score} out of 20 </p>
-                        </div>`;
-        for (let i = 0; i < shuffledQuestions.length; i++) {
-            summaryHTML += `<div class="summary-item">`;
-            if (selectedAnswers[i] === undefined) {
-                summaryHTML += `<p><strong>Question ${i + 1}:</strong> ${shuffledQuestions[i].question}</p>`;
-                summaryHTML += `<p style="color:red">Your Answer: Not answered</p>`;
-            } else {
-                const selectedAnswerIndex = selectedAnswers[i].index;
-                const selectedAnswer = shuffledQuestions[i].answers[selectedAnswerIndex];
-                summaryHTML += `<p><strong>Question ${i + 1}:</strong> ${shuffledQuestions[i].question}</p>`;
-                if (selectedAnswerIndex === 1 && selectedAnswers[i].incorrectWord) {
-                    if (selectedAnswers[i].incorrectWord.toLowerCase() === shuffledQuestions[i].incorrectWord.toLowerCase()) {
-                        summaryHTML += `<p>Your Answer: False (Incorrect word: ${selectedAnswers[i].incorrectWord}) <span class="correct" style="color: green">Correct</span></p>`;
-                    } else {
-                        summaryHTML += `<p>Your Answer: False (Incorrect word: ${selectedAnswers[i].incorrectWord}) <span class="incorrect" style="color: red">Incorrect</span></p>`;
-                    }
+    let summaryHTML = `<h2>Quiz Summary</h2>`;
+    summaryHTML += `<div class="summary-item">
+                        <p><strong>Examiner Name:</strong> ${examinerName}</p>
+                        <p><strong>Contact Details:</strong> ${examinerContact}</p>
+                        <p><strong>Final Score:</strong> ${score} out of ${shuffledQuestions.length} </p>
+                    </div>`;
+    for (let i = 0; i < shuffledQuestions.length; i++) {
+        summaryHTML += `<div class="summary-item">`;
+        if (selectedAnswers[i] === undefined) {
+            summaryHTML += `<p><strong>Question ${i + 1}:</strong> ${shuffledQuestions[i].question}</p>`;
+            summaryHTML += `<p>Your Answer: Not answered</p>`;
+        } else {
+            const selectedAnswerIndex = selectedAnswers[i].index;
+            const selectedAnswer = shuffledQuestions[i].answers[selectedAnswerIndex];
+            summaryHTML += `<p><strong>Question ${i + 1}:</strong> ${shuffledQuestions[i].question}</p>`;
+            if (selectedAnswerIndex === 1 && selectedAnswers[i].incorrectWord) {
+                if (selectedAnswers[i].incorrectWord.toLowerCase() === shuffledQuestions[i].incorrectWord.toLowerCase()) {
+                    summaryHTML += `<p>Your Answer: False (Incorrect word: ${selectedAnswers[i].incorrectWord}) <span class="correct">Correct</span></p>`;
                 } else {
-                    summaryHTML += `<p>Your Answer: ${selectedAnswer.text}`;
-                    if (selectedAnswer.correct) {
-                        summaryHTML += ` <span class="correct" style="color: green;">Correct</span>`;
-                    } else {
-                        summaryHTML += ` <span class="incorrect" style="color: red">Incorrect</span>`;
-                    }
-                    summaryHTML += `</p>`; // Close the <p> tag after applying class
+                    summaryHTML += `<p>Your Answer: False (Incorrect word: ${selectedAnswers[i].incorrectWord}) <span class="incorrect">Incorrect</span></p>`;
                 }
+            } else {
+                summaryHTML += `<p>Your Answer: ${selectedAnswer.text}`;
+                if (selectedAnswer.correct) {
+                    summaryHTML += ` <span class="correct">Correct</span>`;
+                } else {
+                    summaryHTML += ` <span class="incorrect">Incorrect</span>`;
+                }
+                summaryHTML += `</p>`; // Close the <p> tag after applying class
             }
-            summaryHTML += `</div>`;
         }
-
-        summaryElement.innerHTML = summaryHTML;
-        summaryElement.style.display = "block";
+        summaryHTML += `</div>`;
     }
+
+    summaryElement.innerHTML = summaryHTML;
+    summaryElement.style.display = "block";
+}
+
+
+
 
 window.onbeforeunload = function() {
     clearInterval(timer);
@@ -238,7 +239,7 @@ const questions = [
             { text: "True", correct: true },
             { text: "False", correct: false },
         ],
-     
+        incorrectWord: "",
     },
     {
         question: "Procurement Project Management Plan (PPMP) is the consolidation of all APPs for a procuring entity that is scheduled for procurement for a calendar year.",

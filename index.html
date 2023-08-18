@@ -11,7 +11,9 @@
 <body>
     <div class="quiz-container">
         <h1>PART I. MULTIPLE CHOICES.</h1>
-        <p> Select the correct answer (1 point each)</p>
+
+        <p id="instruction"> Select the correct answer (1 point each)</p>
+        <br>
         <div id="examiner-info">
             <label for="name">Name:</label>
             <input type="text" id="name" placeholder="Enter your name">
@@ -26,7 +28,7 @@
         </div>
         <button id="next-button" class="btn1 hide" onclick="nextQuestion()">Next</button>
         <div id="score-container" class="hide">
-            <p id="score-text">Score: <span id="score">0</span></p>
+            <p id="score-text" class="scorefront">Score: <span id="score">0</span></p>
         </div>
         <div id="summary" class="hide"></div>
     </div>

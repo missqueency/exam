@@ -172,7 +172,7 @@ function finishQuiz() {
     summaryHTML += `<div class="summary-item">
                         <p><strong>Examiner Name:</strong> ${examinerName}</p>
                         <p><strong>Contact Details:</strong> ${examinerContact}</p>
-                        <p><strong>Final Score:</strong> ${score} out of ${shuffledQuestions.length} </p>
+                        <p><strong>Final Score:</strong> ${score} out of 20</p>
                     </div>`;
     for (let i = 0; i < shuffledQuestions.length; i++) {
         summaryHTML += `<div class="summary-item">`;

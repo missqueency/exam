@@ -49,7 +49,7 @@ function startQuiz() {
 }
 
 let timer;
-let timeLimit = 3;
+let timeLimit = 30;
 
 function startTimer() {
     let remainingTime = timeLimit;

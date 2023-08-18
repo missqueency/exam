@@ -1,31 +1,25 @@
-body {
-    font-family: Arial, sans-serif;
-    font-size: 2rem;
+/* Reset some default browser styles */
+body, h1, p {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px; /* Adjust the base font size for better readability */
+    line-height: 1.5;
     background-color: #f4f4f4;
 }
 
 .quiz-container {
     background-color: #fff;
-    padding: 200px;
-
+    font-size: 1.6rem;
+    padding: 20px; /* Adjust the padding for better spacing */
     border-radius: 20px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-
-.question-container {
-    background-color: #fff;
-    padding: 200px;
-
-    border-radius: 20px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    margin: 50px auto; /* Center the quiz container on the page */
+    max-width: 800px; /* Limit the maximum width of the quiz container */
 }
 
 .btn-container {
@@ -34,10 +28,11 @@ body {
     align-items: center;
     margin-top: 10px;
     font-size: 16px;
-
 }
 
 .btn {
+     width: 45%; /* Adjust the width as needed */
+    height: 90px;
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -45,106 +40,61 @@ body {
     margin: 5px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 24px;
+    font-size: 18px; /* Slightly reduce the font size for buttons */
+}
+.summary-item {
+    font-size: 16px;
+    text-align: left;
+
 }
 
-#incorrect-word{
-    width: 35%; /* Make the input boxes span the full width of their container */
-    padding: 5px; /* Adjust padding to increase input box size */
-    font-size: 16px; /* Adjust font size as needed */
+#Info {
+    text-align: center;
+    text-decoration-line: line-through;
+}
+
+#examiner-info input[type="text"],
+#incorrect-word,
+#buttons input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
     margin-bottom: 10px;
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    border-radius: 5px;
 }
 
+.notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffcc00;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    z-index: 9999;
+}
 .btn1{
     display: none;
 }
 
-#examiner-info input[type="text"] {
-    width: 100%; /* Make the input boxes span the full width of their container */
-    padding: 10px; /* Adjust padding to increase input box size */
-    font-size: 16px; /* Adjust font size as needed */
-    margin-bottom: 10px;
-}
-#score-container {
-    font-size: 18px;
-    margin-top: 20px;
+.scorefront{
     display: none;
 }
-#buttons input[type="text"]{
-    width: 100%; /* Make the input boxes span the full width of their container */
-    padding: 10px; /* Adjust padding to increase input box size */
-    font-size: 16px; /* Adjust font size as needed */
-    margin-bottom: 10px;
-}
 
-.notification {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #ffcc00;
-  color: #333;
-  text-align: center;
-  padding: 10px;
-  z-index: 9999;
-}
-
- 
 #summary {
-    margin: 20px auto; /* Center the summary on the page */
+    margin: 20px auto;
+    text-align: left; /* Align the text to the left */
     background-color: #f4f4f4;
     text-align: center;
-    max-width: 100%; /* Ensure the summary doesn't exceed the page width */
-    box-sizing: border-box; /* Include padding and border in the total width */
+    max-width: 100%;
+    padding: 20px; /* Add padding for spacing */
+    box-sizing: border-box;
     font-size: 16px;
     line-height: 1.5;
-    margin-top: 2E;
 }
 
 @media print {
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        font-size: 12px; /* Adjust font size for printing */
-    }
-
-    .quiz-container {
-        max-width: 50%;
-        max-height: 100%;
-        margin: 0;
-        padding: 20px;
-        border: none; /* Remove border for printing */
-        background-color: transparent; /* Remove background color for printing */
-    }
-
-    h1 {
-        font-size: 20px; /* Adjust font size for printing */
-    }
-
-    label {
-        font-weight: bold;
-    }
-
-    input[type="text"] {
-        display: none; /* Hide input fields for printing */
-    }
-
-    .btn {
-        display: none; /* Hide buttons for printing */
-    }
-
-    #next-button {
-        display: none !important; /* Ensure next button is hidden for printing */
-    }
-
-    #summary {
-        display: block; /* Show summary for printing */
-    }
-
-    .summary-item {
-        margin-bottom: 10px;
-        font-size: 12px; /* Adjust font size for printing */
-    }
-
+    /* ... Your print styles here ... */
 }
